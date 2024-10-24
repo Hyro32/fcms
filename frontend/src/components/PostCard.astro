@@ -1,0 +1,25 @@
+---
+interface Props {
+  post: Post
+}
+
+const { post } = Astro.props
+---
+
+<a
+  href={`/noticias/${post.slug}`}
+  class="flex flex-col border border-gray-400 rounded-lg shadow-lg duration-300 hover:scale-105"
+>
+  <img
+    src={`http://localhost:3000${post.image.url}`}
+    alt={post.image.alt}
+    class="rounded-t-lg border-b border-gray-400"
+  />
+  <div class="flex flex-col p-3 bg-neutral-100 rounded-b-lg">
+    <div class="flex items-center justify-between w-full">
+      <h2 class="text-xl font-semibold">{post.title}</h2>
+      <span class="text-sm">{new Date(post.date).toLocaleDateString()}</span>
+    </div>
+    <p class="text-sm">{post.description}</p>
+  </div>
+</a>

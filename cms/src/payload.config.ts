@@ -8,6 +8,7 @@ import { buildConfig } from 'payload/config'
 import Users from './collections/Users'
 import Media from './collections/Media'
 import Player from './collections/Player'
+import Posts from './collections/Post'
 
 export default buildConfig({
   admin: {
@@ -15,7 +16,7 @@ export default buildConfig({
     bundler: webpackBundler()
   },
   editor: slateEditor({}),
-  collections: [Users, Media, Player],
+  collections: [Users, Media, Player, Posts],
   localization: {
     locales: ['en', 'es'],
     defaultLocale: 'es',
@@ -23,6 +24,9 @@ export default buildConfig({
   },
   typescript: {
     outputFile: path.resolve(__dirname, 'payload-types.ts')
+  },
+  graphQL: {
+    schemaOutputFile: path.resolve(__dirname, 'generated-schema.graphql')
   },
   plugins: [payloadCloud()],
   db: mongooseAdapter({

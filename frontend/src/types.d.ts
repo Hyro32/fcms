@@ -1,20 +1,24 @@
-interface Opponent {
-  name: string;
-  logo: string;
+interface Image {
+  id: string
+  filename: string
+  mimeType: string
+  filesize: number
+  width: number
+  height: number
+  focalX: number
+  focalY: number
+  createdAt: string
+  updatedAt: string
+  alt: string
+  url: string
 }
 
-interface Goal {
-  player: string;
-  minute: number;
-}
-
-interface Score {
-  home: Goal[];
-  away: Goal[];
-}
-
-interface Match {
-  opponent: Opponent;
-  date: Date;
-  score: Score;
+interface Post {
+  id: string
+  title: string
+  description: string
+  image: Image
+  date: string
+  content: []
+  slug: string
 }

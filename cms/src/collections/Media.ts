@@ -8,6 +8,9 @@ const Media: CollectionConfig = {
     adminThumbnail: 'thumbnail',
     mimeTypes: ['image/*']
   },
+  access: {
+    read: () => true
+  },
   fields: [
     {
       name: 'alt',

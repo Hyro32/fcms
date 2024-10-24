@@ -1,11 +1,12 @@
 ---
-import { Head as CapoHead } from 'astro-capo';
+import { Head as CapoHead } from 'astro-capo'
+import { ViewTransitions } from 'astro:transitions'
 
 interface Props {
-  title?: string;
+  title?: string
 }
 
-const { title = 'Guajes FC' } = Astro.props;
+const { title = 'Guajes FC' } = Astro.props
 ---
 
 <CapoHead>
@@ -14,4 +15,5 @@ const { title = 'Guajes FC' } = Astro.props;
   <meta name="viewport" content="width=device-width" />
   <meta name="generator" content={Astro.generator} />
   <title>{title}</title>
+  <ViewTransitions />
 </CapoHead>

@@ -1,0 +1,17 @@
+---
+import PostCard from '@components/PostCard.astro'
+import Layout from '@layouts/Layout.astro'
+import { getPosts } from '@services/cms'
+
+const cmsPosts = await getPosts()
+const posts = cmsPosts.docs.sort(
+  (a: Post, b: Post) => new Date(b.date).getTime() - new Date(a.date).getTime()
+)
+---
+
+<Layout>
+  <h1>Noticias</h1>
+  <ul class="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+    {posts.map((post: Post) => <PostCard {post} />)}
+  </ul>
+</Layout>
